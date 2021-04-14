@@ -1,29 +1,86 @@
-const axios = require('axios')
-const getHtmlSize = async (url) => {
-  try {
-    const response = await axios.get(url)
-    return response.headers['content-length']
-  } catch (e) {
-    throw (e)
-  }
+console.log('Début')
+
+const getMember = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Member')
+    }, 1500)
+  })
 }
-const main = async () => {
-  try {
-    const url1 = 'https://en.wikipedia.org/wiki/Fravia'
-    const url2 = 'https://en.wikipedia.org/wiki/Old_Red_Cracker'
-
-    const p1 = getHtmlSize(url1)
-    const p2 = getHtmlSize(url2)
-
-    const [size1, size2] = await Promise.all([p1, p2])
-
-    console.log(`size of page ${url1} : ${size1 / 1000} KB`)
-    console.log(`size of page ${url2} : ${size2 / 1000} KB`)
-  } catch (e) {
-    console.error(e.message)
-  }
+const getArticles = (member) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([1, 2, 3])
+    }, 1500)
+  })
 }
-main()
+console.log('Fin')
+
+const viewArticles = async () => {
+  let member = await getMember()
+  let articles = await getArticles(member)
+  console.log(articles)
+}
+viewArticles()
+
+
+// const asyncTask = (id, timeout, willFulFilled) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (willFulFilled === true) {
+//         console.log(`Log : task ${id} done after ${timeout} seconds`)
+//         resolve(`result from task ${id}`)
+//       } else {
+//         reject(new Error(`failure from task ${id}`))
+//       }
+//     }, timeout * 1000)
+//   })
+// }
+// const main = async () => {
+//   asyncTask(1, 2, true)
+//   asyncTask(2, 1.5, true)
+//   asyncTask(3, 0.5, true)
+//   asyncTask(4, 1, true)
+// }
+// main()
+
+
+
+
+// console.log('Start of program')
+// setTimeout(() => {
+//   console.log('tac')
+// }, 5000)
+// setTimeout(() => {
+//   console.log('tic')
+// }, 2000)
+
+// const axios = require('axios')
+// const getHtmlSize = async (url) => {
+//   try {
+//     const response = await axios.get(url)
+//     return response.headers['content-length']
+//   } catch (e) {
+//     throw (e)
+//   }
+// }
+// const main = async () => {
+//   try {
+//     const url1 = 'https://en.wikipedia.org/wiki/Fravia'
+//     const url2 = 'https://en.wikipedia.org/wiki/Old_Red_Cracker'
+
+//     const p1 = getHtmlSize(url1)
+//     const p2 = getHtmlSize(url2)
+
+//     const [size1, size2] = await Promise.all([p1, p2])
+
+//     console.log(`size of page ${url1} : ${size1 / 1000} KB`)
+//     console.log(`size of page ${url2} : ${size2 / 1000} KB`)
+//   } catch (e) {
+//     console.error(e.message)
+//   }
+// }
+// main()
 
 // const axios = require('axios')
 
