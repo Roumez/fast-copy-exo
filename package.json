@@ -1,0 +1,12 @@
+{
+  "name": "fast-copy-exo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Roumez/fast-copy-exo.git",
+  "author": "Roumez <remi.roumezy@hotmail.fr>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs": "^0.0.1-security"
+  }
+}
